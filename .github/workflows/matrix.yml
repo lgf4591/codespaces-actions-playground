@@ -1,0 +1,41 @@
+# Simple workflow for deploying static content to GitHub Pages
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Matrix Test
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+
+
+jobs:
+  example_matrix:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        node: [14, 16, 18, 20]
+        include:
+          - os: windows-latest
+            node: 16
+            npm: 7
+        exclude:
+          - os: ubuntu-latest
+            node: 14
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - if: ${{ matrix.npm }}
+        run: npm install -g npm@${{ matrix.npm }}
+      - run: npm --version
+      - name: run main.py
+        run: |
+          python3 main.py
