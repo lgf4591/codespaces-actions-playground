@@ -36,6 +36,10 @@ jobs:
       - if: ${{ matrix.npm }}
         run: npm install -g npm@${{ matrix.npm }}
       - run: npm --version
+      
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: run main.py
         run: |
           python3 main.py
