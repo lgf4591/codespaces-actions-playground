@@ -16,6 +16,7 @@ jobs:
         run: echo Hello, world!
 
   docker:
+    # uses: lgf4591/ReusableWorkflow/.github/workflows/buildAndPublishDockerImage.yml@main
     uses: lgf4591/ReusableWorkflow/.github/workflows/buildAndPublishDockerImage.yml@main
     with:
       image_name: aline-demo
