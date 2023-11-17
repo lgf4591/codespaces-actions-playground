@@ -9,3 +9,21 @@ jobs:
       - name: Hello world
         run: |
           echo "Hello world"
+  
+  stage1:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: create hello.txt
+        run: |
+          echo "hello" > hello.txt
+          ls -la
+  
+  stage2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create hello1.txt
+        run: |
+          echo "hello1" > hello1.txt
+          ls -la
