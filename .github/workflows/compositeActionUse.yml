@@ -21,3 +21,4 @@ jobs:
           registry_password: ${{secrets.DOCKERHUB_PASSWORD}}
           image_name: alpine
           tag: $GITHUB_RUN_NUMBER
+          build_context: .
