@@ -18,10 +18,12 @@ jobs:
       - name: create hello.txt
         run: |
           echo "hello" > hello.txt
-          ls -la
+          ls
   
   stage2:
     runs-on: ubuntu-latest
+    if: ${{ success() }}
+    needs: stage1
     steps:
       - name: create hello1.txt
         run: |
