@@ -19,7 +19,7 @@ jobs:
     # uses: lgf4591/ReusableWorkflow/.github/workflows/buildAndPublishDockerImage.yml@main
     uses: lgf4591/ReusableWorkflow/.github/workflows/buildAndPublishDockerImage.yml@main
     with:
-      image_name: aline-demo
+      image_name: aline_demo
       tag: $GITHUB_RUN_NUMBER
     secrets:
       registry_username: ${{secrets.DOCKERHUB_USERNAME}}
