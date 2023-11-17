@@ -19,13 +19,22 @@ jobs:
         run: |
           echo "hello" > hello.txt
           ls
+      - uses: actions/upload-artifact@v2
+        with:
+          name: codespaces-actions-playground
+          path: ./
   
   stage2:
     runs-on: ubuntu-latest
     if: ${{ success() }}
     needs: stage1
     steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: codespaces-actions-playground
+          path: ./
       - name: create hello1.txt
         run: |
+          cd codespaces-actions-playground
           echo "hello1" > hello1.txt
           ls -la
