@@ -19,7 +19,7 @@ jobs:
     # uses: lgf4591/ReusableWorkflow/.github/workflows/buildAndPublishDockerImage.yml@main
     uses: lgf4591/ReusableWorkflow/.github/workflows/buildAndPublishDockerImage.yml@main
     with:
-      image_name: aline_demo
+      image_name: aline1
       tag: latest
     secrets:
       dockerhub_username: ${{secrets.DOCKERHUB_USERNAME}}
