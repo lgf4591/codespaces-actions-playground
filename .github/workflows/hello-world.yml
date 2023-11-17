@@ -36,6 +36,5 @@ jobs:
       - name: create hello1.txt
         run: |
           pwd
-          cd ./codespaces-actions-playground
           echo "hello1" > hello1.txt
           ls -la
