@@ -13,6 +13,13 @@ jobs:
   hello-world:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo With SSH
+        uses: lgf4591/CheckoutWithSSHAction@main
+        with:
+          repo_name: codespaces-actions-playground
+          repo_owner: lgf4591
+          git_private_key: ${{ secrets.ACTION_KEY }}
+
       - name: Hello world
         run: |
           pwd
