@@ -28,6 +28,10 @@ jobs:
           pwd
           ls -la
           echo "Hello world"
+          touch dmeo.txt
+        
+      - name: Update Git With SSH
+        uses: lgf4591/GitUpdateWithSSHAction@main
   
   stage1:
     runs-on: windows-latest
