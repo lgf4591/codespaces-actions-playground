@@ -13,12 +13,15 @@ jobs:
   hello-world:
     runs-on: ubuntu-latest
     steps:
+      # git clone git@github.com:lgf4591/codespaces-actions-playground.git
       - name: Checkout repo With SSH
         uses: lgf4591/CheckoutWithSSHAction@main
         with:
           repo_name: codespaces-actions-playground
           repo_owner: lgf4591
           git_private_key: ${{ secrets.ACTION_KEY }}
+          shell: sh
+          branch: main
 
       - name: Hello world
         run: |
