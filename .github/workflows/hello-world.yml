@@ -32,6 +32,11 @@ jobs:
         
       - name: Update Git With SSH
         uses: lgf4591/GitUpdateWithSSHAction@main
+        # with:
+        #   shell: bash
+        #   branch: main
+        #   commit: "hello"
+      - uses: docker/build-push-action@v5
   
   stage1:
     runs-on: windows-latest
