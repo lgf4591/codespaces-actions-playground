@@ -29,7 +29,9 @@ jobs:
           ls -la
           echo "Hello world"
           echo "${{ github.repository_owner }}"
-          echo "${{ github.repository_name }}"
+          echo "${{ github.repository }}"
+          echo "${{ github.actor }}"
+          echo "${{ runner.os }}"
         
       - name: Update Git With SSH
         uses: lgf4591/GitUpdateWithSSHAction@main
