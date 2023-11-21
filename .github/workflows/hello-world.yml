@@ -54,15 +54,7 @@ jobs:
         with:
           name: codespaces-actions-playground
           path: ./
-      
-      - name: Checkout repo With SSH On Windows
-        uses: lgf4591/CheckoutWithSSHAction@main
-        with:
-          # repo: lgf4591/codespaces-actions-playground
-          git_private_key: ${{ secrets.ACTION_KEY }}
-          shell: powershell
-          # branch: main
-  
+
   stage2:
     runs-on: ubuntu-latest
     if: ${{ success() }}
@@ -77,3 +69,14 @@ jobs:
           pwd
           echo "hello1" > hello1.txt
           ls -la
+
+  stage3:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repo With SSH On Windows
+        uses: lgf4591/CheckoutWithSSHAction@main
+        with:
+          # repo: lgf4591/codespaces-actions-playground
+          git_private_key: ${{ secrets.ACTION_KEY }}
+          shell: powershell
+          # branch: main
