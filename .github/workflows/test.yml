@@ -1,0 +1,28 @@
+
+name: Hello world
+
+# on: [push]
+
+on:
+  push:
+    branches: ["none"]
+  pull_request:
+    branches: ["none"]
+  workflow_dispatch:
+
+jobs:
+  stage3:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repo With SSH On Windows
+        uses: lgf4591/CheckoutWithSSHAction@main
+        with:
+          # repo: lgf4591/codespaces-actions-playground
+          git_private_key: ${{ secrets.ACTION_KEY }}
+          shell: powershell
+          # branch: main
+      
+      - name: SSH test
+        run: |
+          cat  $env:USERPROFILE\.ssh\id_rsa
+          ssh -T git@github.com
