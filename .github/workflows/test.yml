@@ -28,7 +28,8 @@ jobs:
           cat $env:USERPROFILE\.ssh\known_hosts
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Action"
-          ssh -T git@github.com
+          git clone git@github.com:${{ github.repository }}.git ./
+          Get-ChildItem .
 
       # - name: Checkout repo With SSH On Windows
       #   uses: lgf4591/CheckoutWithSSHAction@main
