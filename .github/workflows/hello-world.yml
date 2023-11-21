@@ -28,7 +28,8 @@ jobs:
           pwd
           ls -la
           echo "Hello world"
-          touch dmeo.txt
+          echo "${{ github.repository_owner }}"
+          echo "${{ github.repository_name }}"
         
       - name: Update Git With SSH
         uses: lgf4591/GitUpdateWithSSHAction@main
