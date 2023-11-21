@@ -17,11 +17,10 @@ jobs:
       - name: Checkout repo With SSH
         uses: lgf4591/CheckoutWithSSHAction@main
         with:
-          repo_name: codespaces-actions-playground
-          repo_owner: lgf4591
+          # repo: lgf4591/codespaces-actions-playground
           git_private_key: ${{ secrets.ACTION_KEY }}
-          shell: sh
-          branch: main
+          # shell: sh
+          # branch: main
 
       - name: Hello world
         run: |
@@ -39,6 +38,7 @@ jobs:
         #   shell: bash
         #   branch: main
         #   commit: "hello"
+        
       - uses: docker/build-push-action@v5
   
   stage1:
@@ -54,6 +54,14 @@ jobs:
         with:
           name: codespaces-actions-playground
           path: ./
+      
+      - name: Checkout repo With SSH On Windows
+        uses: lgf4591/CheckoutWithSSHAction@main
+        with:
+          # repo: lgf4591/codespaces-actions-playground
+          git_private_key: ${{ secrets.ACTION_KEY }}
+          shell: powershell
+          # branch: main
   
   stage2:
     runs-on: ubuntu-latest
