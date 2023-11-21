@@ -14,15 +14,22 @@ jobs:
   stage3:
     runs-on: windows-latest
     steps:
-      - name: Checkout repo With SSH On Windows
-        uses: lgf4591/CheckoutWithSSHAction@main
-        with:
-          # repo: lgf4591/codespaces-actions-playground
-          git_private_key: ${{ secrets.ACTION_KEY }}
-          shell: powershell
-          # branch: main
-      
-      - name: SSH test
+      - name: hello-world
         run: |
-          cat  $env:USERPROFILE\.ssh\id_rsa
-          ssh -T git@github.com
+          echo "${{ github.repository_owner }}"
+          echo "${{ github.repository }}"
+          echo "${{ github.actor }}"
+          echo "${{ runner.os }}"
+
+      # - name: Checkout repo With SSH On Windows
+      #   uses: lgf4591/CheckoutWithSSHAction@main
+      #   with:
+      #     # repo: lgf4591/codespaces-actions-playground
+      #     git_private_key: ${{ secrets.ACTION_KEY }}
+      #     shell: powershell
+      #     # branch: main
+      
+      # - name: SSH test
+      #   run: |
+      #     cat  $env:USERPROFILE\.ssh\id_rsa
+      #     ssh -T git@github.com
