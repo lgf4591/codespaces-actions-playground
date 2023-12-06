@@ -33,4 +33,6 @@ jobs:
       #     git push
       - name: auto commit
         uses: lgf4591/GitUpdateWithSSHAction@main
+        with:
+          token: ${{ secrets.ACTION_TOKEN }}
 
