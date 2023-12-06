@@ -23,11 +23,14 @@ jobs:
           git branch -a
           git tag
           echo `date` >> demo.txt
+      # - name: auto commit
+      #   run: |
+      #     git config --local user.email "lgf4591@outlook.com"
+      #     git config --local user.name "github-action"
+      #     git remote set-url origin https://${{ github.actor }}:${{ secrets.ACTION_TOKEN }}@github.com/${{ github.repository }}
+      #     git add .
+      #     git commit --allow-empty -m "auto commit by github actions"
+      #     git push
       - name: auto commit
-        run: |
-          git config --local user.email "lgf4591@outlook.com"
-          git config --local user.name "github-action"
-          git remote set-url origin https://${{ github.actor }}:${{ secrets.ACTION_TOKEN }}@github.com/${{ github.repository }}
-          git add .
-          git commit --allow-empty -m "auto commit by github actions"
-          git push
+        uses: GitUpdateWithSSHAction@main
+
