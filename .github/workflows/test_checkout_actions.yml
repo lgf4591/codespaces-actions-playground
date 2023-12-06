@@ -32,5 +32,5 @@ jobs:
       #     git commit --allow-empty -m "auto commit by github actions"
       #     git push
       - name: auto commit
-        uses: GitUpdateWithSSHAction@main
+        uses: lgf4591/GitUpdateWithSSHAction@main
 
